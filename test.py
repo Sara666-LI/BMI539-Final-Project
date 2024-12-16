@@ -1,9 +1,11 @@
-import roboschool, gym
+import gym
+import rl_dbs.gym_oscillator
+import rl_dbs.gym_oscillator.envs
 from TD3 import TD3
 from PIL import Image
 
 def test():
-    env_name = "RoboschoolWalker2d-v1"
+    env_name = "rl_dbs"
     random_seed = 0
     n_episodes = 3
     lr = 0.002
@@ -15,7 +17,7 @@ def test():
     filename += '_solved'
     directory = "./preTrained/{}".format(env_name)
     
-    env = gym.make(env_name)
+    env = rl_dbs.gym_oscillator.envs.oscillatorEnv()
     state_dim = env.observation_space.shape[0]
     action_dim = env.action_space.shape[0]
     max_action = float(env.action_space.high[0])
